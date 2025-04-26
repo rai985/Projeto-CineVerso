@@ -1,0 +1,328 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #111;
+    line-height: 1.6;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header {
+    background-color: #1e1e2f;
+    color: white;
+    padding: 20px;
+    text-align: center;
+
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+  }
+  
+  header p {
+    font-size: 1.1rem;
+  }
+  
+  nav {
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s;
+    
+  }
+  
+  nav a:hover {
+    color: #ffcc00;
+  }
+  
+  main {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+  }
+  
+  section {
+    display: none;
+  }
+  
+  section.active {
+    display: block;
+  }
+  
+  /* Quiz */
+  #quiz-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-top: 20px;
+  }
+  
+  #opcoes {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #opcoes li {
+    margin: 10px 0;
+    padding: 12px;
+    background-color: #eee;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  #opcoes li:hover {
+    background-color: #ccc;
+  }
+  
+  #feedback {
+    font-weight: bold;
+    margin-top: 15px;
+  }
+  
+  #proxima {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  #proxima:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Chatbot*/
+  #chatbot-container{
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.08);
+  }
+  
+/* Rodapé */
+footer {
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: auto; 
+  font-size: 14px;
+}
+
+/***************** Carrossel de imagens ***************/
+.slider {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 2 / 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.slides {
+  width: 400%;
+  height: 100%;
+  display: flex;
+}
+
+.slides input {
+  display: none;
+}
+
+.slide {
+  width: 25%;
+  height: 100%;
+  position: relative;
+  transition: 2s;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+}
+
+/* Botões manuais */
+.manual-navigation {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+
+.manual-btn {
+  border: 2px solid #ffffff;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.manual-btn:not(:last-child) {
+  margin-right: 15px;
+}
+
+.manual-btn:hover {
+  background-color: #ffffff;
+}
+
+/* Botões automáticos */
+.navigation-auto {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  z-index: 0;
+}
+
+.navigation-auto div {
+  border: 2px solid;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.navigation-auto div:not(:last-child) {
+  margin-right: 15px;
+}
+
+#radio1:checked ~ .first {
+  margin-left: 0;
+}
+#radio2:checked ~ .first {
+  margin-left: -25%;
+}
+#radio3:checked ~ .first {
+  margin-left: -50%;
+}
+#radio4:checked ~ .first {
+  margin-left: -75%;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1,
+#radio2:checked ~ .navigation-auto .auto-btn2,
+#radio3:checked ~ .navigation-auto .auto-btn3,
+#radio4:checked ~ .navigation-auto .auto-btn4 {
+  background-color: #ffffff;
+}
+
+/* Responsividade específica para o carrossel */
+@media (max-width: 600px) {
+  .slider {
+    aspect-ratio: 16 / 9;
+  }
+
+  .manual-btn,
+  .navigation-auto div {
+    padding: 4px;
+  }
+}
+
+/***************** Fim do Carrossel de imagens ***************/
+
+.texto-home{
+  margin-top: 2rem;
+  color: #111;
+}
+
+.welcome{
+  color: #111;
+  margin-bottom: 1.5rem;
+}
+
+.welcome h2 {
+  margin-bottom: 0.6rem;
+  text-align: center;
+}
+
+/********************Recomendações semanais*************************/
+#tabela-container {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+}
+.tabela-genero {
+  margin-bottom: 40px;
+}
+
+.tabela-genero h3 {
+  margin-bottom: 10px;
+  color: #1e1e2f;
+  border-left: 5px solid #ffcc00;
+  padding-left: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  vertical-align: top;
+}
+
+th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Coluna "Duração" */
+th:nth-child(2),
+td:nth-child(2) {
+  width: 11%;
+}
+
+  /*Responsividade*/
+
+    @media screen and (max-width: 798px){
+    .container{
+        display: block;
+        background-image: none;
+    }
+
+    }
+
+  
