@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CineVerso</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script src="js/home.js" defer></script>
+  <script src="js/recomendacao.js" defer></script>
+  <script src="js/quiz.js" defer></script>
+  <script src="js/tabela.js" defer></script>
+
+
+</head>
+
+<body>
+
+    <header>
+      <h1>CineVerso</h1>
+    </header>
+  
+    <nav>
+      <a href="#" onclick="showSection('home')">Home</a>
+      <a href="#" onclick="showSection('chatbot')">Recomendações</a>
+      <a href="#" onclick="showSection('quiz')">Quiz Nerd</a>
+      <a href="#" onclick="showSection('tabela')">Tabela Semanal</a>
+    </nav>
+
+
+    <main>
+
+<!------------------------------------------------------------Home------------------------------------------------------------->       
+      <section id="home" class="active">
+        <div class="welcome">
+          <h2 >Bem-vindo ao CineVerso!</h2>
+          <p>Encontre os melhores filmes, séries e documentários!</p>
+        </div>
+
+        <!---------Carrossel de imagens--------->
+        
+        <div class="slider">
+
+          <div class="slides">
+            <!--Radio button-->
+            <input type="radio" name="radio-btn" id="radio1">
+            <input type="radio" name="radio-btn" id="radio2">
+            <input type="radio" name="radio-btn" id="radio3">
+            <input type="radio" name="radio-btn" id="radio4">
+            <!--Fim Radio button-->
+
+            <!--Slide imagens-->
+            <div class="slide first">
+              <img src="imagens/paisagem.jpg" alt="cachorro"/>
+            </div>
+
+            <div class="slide">
+              <img src="imagens/coruja.jpg" alt="coruja"/>
+            </div>
+
+            <div class="slide">
+              <img src="imagens/gato.jpg" alt="gato"/>
+            </div>
+
+            <div class="slide">
+              <img src="imagens/flor.jpg" alt="flor"/>
+            </div>
+            <!--Fim Slide imagens-->
+
+            <!--Navigation auto-->
+            <div class="navigation-auto">
+              <div class="auto-btn1"></div>
+              <div class="auto-btn2"></div>
+              <div class="auto-btn3"></div>
+              <div class="auto-btn4"></div>
+            </div>
+                       
+            <div class="manual-navigation">
+              <label for="radio1" class="manual-btn"></label>
+              <label for="radio2" class="manual-btn"></label>
+              <label for="radio3" class="manual-btn"></label>
+              <label for="radio4" class="manual-btn"></label>
+            </div>
+            <!--Fim Navigation auto -->           
+
+          </div>         
+
+        </div>       
+ <!---------Fim do Carrossel de imagens--------->
+
+        <div class="texto-home">
+          <p> Está com dúvida do que assistir hoje porque você é uma pessoa indecisa e incapaz de tomar suas próprias decisões? Então está no lugar certo! Ajudamos você a escolher os melhores conteúdos com base no seu gosto e também contamos com um quiz sobre o filmes/séries e sugestões semanais por gênero!</p>
+        </div>
+      </section>
+<!---------------------------------------------------------Fim da Home--------------------------------------------------------->  
+
+
+<!-----------------------------------------------------------Chatbot----------------------------------------------------------->
+      <section id="chatbot">
+        <h2>Recomendações com Chatbot</h2>
+        <div id="chatbot-container">
+
+          <!-- A implementar -->
+
+        </div>
+      </section>
+<!-------------------------------------------------------Fim do Chatbot-------------------------------------------------------->
+
+
+<!-------------------------------------------------------------Quiz------------------------------------------------------------>
+      <section id="quiz">
+        <h2>Quiz filmes e séries</h2>
+        <div id="quiz-container">
+          
+          <div id="quiz-box">
+              <h3 id="pergunta"></h3>
+              <ul id="opcoes"></ul>
+              <p id="feedback"></p>
+              <button id="proxima" style="display: none;">Próxima Pergunta</button>
+              <div id="resultado" style="margin-top: 20px;"></div>
+            </div>
+            
+        </div>
+      </section>
+<!---------------------------------------------------------Fim do Quiz--------------------------------------------------------->      
+
+
+
+<!---------------------------------------------------Tabela de Recomendações--------------------------------------------------->
+<!--O conteúdo da tabela será preenchido automaticamente através da integração com a API TMDB-->
+
+      <section id="tabela">
+        <div class="genero-tabelas">
+
+          <div class="tabela-genero">
+            <h3>Ação</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Nome do Filme</th>
+                  <th>Duração</th>
+                  <th>Data de Lançamento</th>
+                  <th>Sinopse</th>
+                  <th>Avaliação</th>
+                </tr>
+              </thead>
+              <tbody id="tabela-acao">
+              </tbody>
+            </table>
+          </div>
+        
+          <div class="tabela-genero">
+            <h3>Comédia</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Nome do Filme</th>
+                  <th>Duração</th>
+                  <th>Data de Lançamento</th>
+                  <th>Sinopse</th>
+                  <th>Avaliação</th>
+                </tr>
+              </thead>
+              <tbody id="tabela-comedia"></tbody>
+            </table>
+          </div>
+        
+          <div class="tabela-genero">
+            <h3>Ficção Científica</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Nome do Filme</th>
+                  <th>Duração</th>
+                  <th>Data de Lançamento</th>
+                  <th>Sinopse</th>
+                  <th>Avaliação</th>
+                </tr>
+              </thead>
+              <tbody id="tabela-ficcao"></tbody>
+            </table>
+          </div>
+        
+          <div class="tabela-genero">
+            <h3>Drama</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Nome do Filme</th>
+                  <th>Duração</th>
+                  <th>Data de Lançamento</th>
+                  <th>Sinopse</th>
+                  <th>Avaliação</th>
+                </tr>
+              </thead>
+              <tbody id="tabela-drama"></tbody>
+            </table>
+          </div>
+        
+          <div class="tabela-genero">
+            <h3>Terror</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Nome do Filme</th>
+                  <th>Duração</th>
+                  <th>Data de Lançamento</th>
+                  <th>Sinopse</th>
+                  <th>Avaliação</th>
+                </tr>
+              </thead>
+              <tbody id="tabela-terror"></tbody>
+            </table>
+          </div>
+        
+          <div class="tabela-genero">
+            <h3>Romance</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Nome do Filme</th>
+                  <th>Duração</th>
+                  <th>Data de Lançamento</th>
+                  <th>Sinopse</th>
+                  <th>Avaliação</th>
+                </tr>
+              </thead>
+              <tbody id="tabela-romance"></tbody>
+            </table>
+          </div>
+        
+          <div class="tabela-genero">
+            <h3>Documentário</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Nome do Filme</th>
+                  <th>Duração</th>
+                  <th>Data de Lançamento</th>
+                  <th>Sinopse</th>
+                  <th>Avaliação</th>
+                </tr>
+              </thead>
+              <tbody id="tabela-documentario"></tbody>
+            </table>
+          </div>
+        
+        </div>
+      </section>
+<!------------------------------------------------Fim da Tabela de Recomendações--------------------------------------------------->
+    </main>
+
+
+    
+<!--------------------------------------------------------------Rodapé------------------------------------------------------------->  
+    <footer>
+      <p>&copy; 2025 CineVerso - Todos os direitos reservados</p>
+    </footer>
+<!---------------------------------------------------------Fim da Rodapé-----------------------------------------------------------> 
+
+</body>
+</html>
