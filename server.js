@@ -69,6 +69,7 @@ app.get('/api/filmes', async (req, res) => {
         dataLancamento: filme.release_date,
         sinopse: filme.overview,
         avaliacao: filme.vote_average.toFixed(1),
+        poster: `https://image.tmdb.org/t/p/w200${filme.poster_path}`,
         linkAssistir: `https://www.google.com/search?q=onde+assistir+${encodeURIComponent(filme.title)}`
       });
       filmesValidos++;

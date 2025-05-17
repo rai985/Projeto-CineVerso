@@ -7,22 +7,28 @@
   
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f4;
     color: #111;
     line-height: 1.6;
     margin: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background-color: #ffffff;
+
   }
-  
+
   header {
-    background-color: #1e1e2f;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #012041;
     color: white;
     padding: 20px;
     text-align: center;
-
+    z-index: 1000;
   }
+
   
   header h1 {
     font-size: 2.5rem;
@@ -33,11 +39,17 @@
   }
   
   nav {
-    background-color: #333;
+    position: fixed;
+    top: 104px;
+    left: 0;
+    width: 100%;
+    background-color: #4386ce;
     display: flex;
     justify-content: center;
     padding: 10px 0;
+    z-index: 999;
   }
+
   
   nav a {
     color: white;
@@ -54,8 +66,10 @@
   
   main {
     padding: 20px;
-    max-width: 900px;
-    margin: auto;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 12rem;
+    
   }
   
   section {
@@ -65,7 +79,101 @@
   section.active {
     display: block;
   }
-  
+/**************** Home********************/
+body section p {
+  text-align: left;
+  padding: 2rem;
+  color: #000000;
+}
+
+  .paragrafo-home{
+    color: #fff;
+  }
+
+  .link-paragrafo{
+    color: inherit;
+    text-decoration: underline;
+    transition: color 0.08s ease;
+  }
+
+  .link-paragrafo:hover{
+    color:#031e3a
+  }
+
+  #home{
+    text-align: center; 
+  }
+
+  .welcome{
+    color: #111;
+    margin-bottom: 1.5rem; 
+  }
+
+  #welcome2{
+    color: #ffffff;
+    background-color: #115eaf;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 2rem;
+    border-radius: 1.5rem;
+    padding: 1rem;  
+  }
+
+  .titulo{
+    text-align: center;
+    color: #000000;
+  }
+
+  .imagens{
+    width: auto;
+    max-width: 90%;
+    height: 15rem;
+    border-radius: 1.5rem;
+  }
+
+  /***************** Carrossel de imagens ***************/
+#carrossel-content{
+  padding: 1rem;
+  width: 100%;
+}
+
+.slider {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1000px;          /* Aumenta a largura máxima */
+  aspect-ratio: 16 / 9;       /* Aumenta um pouco a altura mantendo proporção */
+  overflow: hidden;
+  position: relative;
+}
+
+.slides {
+  display: flex;
+  height: 100%;
+  transition: transform 1s ease-in-out;
+}
+
+.slide {
+  flex: 0 0 10%;              /* Cada slide ocupa 10% do container (10 slides) */
+  height: 100%;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsividade específica para telas pequenas */
+@media (max-width: 600px) {
+  .slider {
+    aspect-ratio: 16 / 9;     /* Proporção mais alta em telas menores */
+    max-width: 100%;          /* Ocupar 100% da largura da tela pequena */
+  }
+}
+
+/***************** Fim do Carrossel de imagens ***************/
+
   /* Quiz */
   #quiz-box {
     background-color: #fff;
@@ -132,177 +240,62 @@ footer {
   font-size: 14px;
 }
 
-/***************** Carrossel de imagens ***************/
-.slider {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 800px;
-  aspect-ratio: 2 / 1;
-  overflow: hidden;
-  position: relative;
-}
-
-.slides {
-  width: 400%;
-  height: 100%;
-  display: flex;
-}
-
-.slides input {
-  display: none;
-}
-
-.slide {
-  width: 25%;
-  height: 100%;
-  position: relative;
-  transition: 2s;
-}
-
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit:cover;
-}
-
-/* Botões manuais */
-.manual-navigation {
-  position: absolute;
-  width: 100%;
-  bottom: 10px;
-  display: flex;
-  justify-content: center;
-  z-index: 1;
-}
-
-.manual-btn {
-  border: 2px solid #ffffff;
-  padding: 5px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.2s;
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-.manual-btn:not(:last-child) {
-  margin-right: 15px;
-}
-
-.manual-btn:hover {
-  background-color: #ffffff;
-}
-
-/* Botões automáticos */
-.navigation-auto {
-  position: absolute;
-  width: 100%;
-  bottom: 10px;
-  display: flex;
-  justify-content: center;
-  z-index: 0;
-}
-
-.navigation-auto div {
-  border: 2px solid;
-  padding: 5px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.navigation-auto div:not(:last-child) {
-  margin-right: 15px;
-}
-
-#radio1:checked ~ .first {
-  margin-left: 0;
-}
-#radio2:checked ~ .first {
-  margin-left: -25%;
-}
-#radio3:checked ~ .first {
-  margin-left: -50%;
-}
-#radio4:checked ~ .first {
-  margin-left: -75%;
-}
-
-#radio1:checked ~ .navigation-auto .auto-btn1,
-#radio2:checked ~ .navigation-auto .auto-btn2,
-#radio3:checked ~ .navigation-auto .auto-btn3,
-#radio4:checked ~ .navigation-auto .auto-btn4 {
-  background-color: #ffffff;
-}
-
-/* Responsividade específica para o carrossel */
-@media (max-width: 600px) {
-  .slider {
-    aspect-ratio: 16 / 9;
-  }
-
-  .manual-btn,
-  .navigation-auto div {
-    padding: 4px;
-  }
-}
-
-/***************** Fim do Carrossel de imagens ***************/
-
-.texto-home{
-  margin-top: 2rem;
-  color: #111;
-}
-
-.welcome{
-  color: #111;
-  margin-bottom: 1.5rem;
-}
-
-.welcome h2 {
-  margin-bottom: 0.6rem;
-  text-align: center;
-}
-
 /********************Recomendações semanais*************************/
-#tabela-container {
+#tabela{
+  width: 80%;
+  align-self: center;
   margin-top: 20px;
-  padding: 20px;
-  background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.08);
+  padding: 1rem;
+  
 }
+
+.table-wrapper{
+  width: 100%;
+  overflow-x: auto;
+}
+
 .tabela-genero {
   margin-bottom: 40px;
+  
 }
 
 .tabela-genero h3 {
   margin-bottom: 10px;
-  color: #1e1e2f;
+  color: #000000;
   border-left: 5px solid #ffcc00;
   padding-left: 10px;
+
 }
 
 table {
-  width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
-  background-color: #fff;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  min-width: 600px;
+  width: 100%;
+  color: #000000;
   
 }
 
-th, td {
+
+th, tr {
   padding: 12px;
   text-align: center;
   border-bottom: 1px solid #ddd;
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 th {
   background-color: #f0f0f0;
   font-weight: bold;
+}
+
+tr{
+  width: 100%;
 }
 
 tbody tr:hover {

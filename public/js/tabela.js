@@ -13,6 +13,7 @@ async function carregarTabela(genero, tabelaId) {
     filmes.forEach(filme => {
       const linha = document.createElement('tr');
       linha.innerHTML = `
+        <td><img src="${filme.poster}" alt="Pôster de ${filme.titulo}" style="width: 80px; border-radius: 6px;"></td>
         <td><a href="${filme.linkAssistir}" target="_blank">${filme.titulo}</a></td>
         <td>${filme.duracao} min</td>
         <td>${filme.dataLancamento}</td>
@@ -37,3 +38,4 @@ document.addEventListener('DOMContentLoaded', () => {
   carregarTabela('romance', 'tabela-romance');
   carregarTabela('documentario', 'tabela-documentario');
 });
+
