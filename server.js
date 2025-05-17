@@ -1,6 +1,8 @@
 // Importa o framework Express para criar o servidor web e o módulo `path` para lidar com caminhos de arquivos.
 const express = require('express');
 const path = require('path');
+const { createProxyMiddleware } = require('http-proxy-middleware');
+
 
 // Inicializa a aplicação Express e define a porta onde o servidor irá rodar. Se existir uma variável de ambiente PORT (como em servidores na nuvem), usa ela; caso contrário, usa a porta 3000.
 const app = express();
@@ -23,6 +25,14 @@ const generos = {
 
 // Configura o Express para servir arquivos estáticos (HTML, CSS, JS, imagens) da pasta "public". Isso permite que o navegador acesse diretamente esses arquivos.
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(
+  '/chat',
+  createProxyMiddleware({
+    target: 'http://127.0.0.1:5000',
+    changeOrigin: true,
+  })
+);
+
 
 // Função auxiliar `buscarDetalhesFilme` que, dado o ID de um filme, faz uma requisição para pegar detalhes extras como a duração ("runtime").
 async function buscarDetalhesFilme(id) {
@@ -83,6 +93,7 @@ app.get('/api/filmes', async (req, res) => {
 });
 
 // Inicializa o servidor, que começa a escutar na porta definida. Quando o servidor estiver rodando, exibe uma mensagem no console.
+
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });

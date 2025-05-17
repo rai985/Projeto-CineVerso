@@ -10,7 +10,6 @@
   <script src="js/quiz.js" defer></script>
   <script src="js/tabela.js" defer></script>
 
-
 </head>
 
 <body>
@@ -72,12 +71,17 @@
 
 <!-----------------------------------------------------------Chatbot----------------------------------------------------------->
       <section id="chatbot">
-        <h2>Recomendações com Chatbot</h2>
-        <div id="chatbot-container">
+        
+        <h2>Chat de recomendações</h2>
 
-          <!-- A implementar -->
-
+        <div class="chat-container">            
+          <div id="chat" class="chat-messages"></div>
+          <div class="chat-input-area">
+            <input id="input" placeholder="Digite sua mensagem..." />
+            <button onclick="sendMsg()">Enviar</button>
+          </div>
         </div>
+
       </section>
 <!-------------------------------------------------------Fim do Chatbot-------------------------------------------------------->
 
