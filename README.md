@@ -12,7 +12,7 @@
 - Frontend: HTML, CSS, JavaScript
 - Backend: Node.js 
 - Chatbot: Python 
-- APIs: The Movie Database (TMDB) e Open Trivia DB
+- APIs: The Movie Database (TMDB) e API local com perguntas para o quiz
 
 # Como Rodar o Projeto
 
